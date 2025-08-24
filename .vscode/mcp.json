@@ -1,0 +1,14 @@
+{
+    "servers": {
+        "github-remote": {
+            "type": "http",
+            "url": "https://api.githubcopilot.com/mcp/"
+        },
+        "dart": {
+        "command": "dart",
+        "args": [
+          "mcp-server"
+        ]
+      }
+    }
+}
