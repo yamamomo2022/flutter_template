@@ -1,0 +1,15 @@
+flavors:
+  dev:
+    app:
+      name: "Flavor Template App Dev"
+    android:
+      applicationId: "com.example.flavor_template_app.dev"
+    ios:
+      bundleId: "com.example.flavor_template_app.dev"
+  prod:
+    app:
+      name: "Flavor Template App"
+    android:
+      applicationId: "com.example.flavor_template_app"
+    ios:
+      bundleId: "com.example.flavor_template_app"
