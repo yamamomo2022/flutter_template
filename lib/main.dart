@@ -15,5 +15,7 @@ FutureOr<void> main() async {
     (element) => element.name == appFlavor,
   );
 
+  logger.i('App Flavor: ${F.name}');
+
   runApp(const App());
 }
