@@ -2,9 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:logger/logger.dart';
 
 import 'app.dart';
 import 'flavors.dart';
+
+/// Logger for the application
+final logger = Logger();
 
 FutureOr<void> main() async {
   F.appFlavor = Flavor.values.firstWhere(
