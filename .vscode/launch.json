@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "app-dev",
+        "type": "dart",
+        "request": "launch",
+        "flutterMode": "debug",
+        "program": "lib/main.dart",
+        "args": [
+          "--flavor",
+          "dev",
+          "-t",
+          "lib/main.dart",
+        ]
+      },
+      {
+        "name": "app-prod",
+        "type": "dart",
+        "request": "launch",
+        "flutterMode": "debug",
+        "program": "lib/main.dart",
+        "args": [
+          "--flavor",
+          "prod",
+          "lib/main.dart",
+        ]
+      }
+    ]
+  }
