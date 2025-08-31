@@ -11,7 +11,19 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: F.title,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      themeMode: ThemeMode.system,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: const TextTheme(bodyLarge: TextStyle(color: Colors.black)),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.deepPurpleAccent,
+        scaffoldBackgroundColor: Color(0xFF303030),
+        textTheme: const TextTheme(bodyLarge: TextStyle(color: Colors.white)),
+      ),
       home: _flavorBanner(child: MyHomePage(), show: kDebugMode),
     );
   }
