@@ -14,19 +14,21 @@ final logger = Logger();
 ///
 /// Defaults to `dev` to avoid crashing the app when the value is missing or
 /// invalid.
-const appFlavor = String.fromEnvironment('FLAVOR', defaultValue: 'dev');
+final String appFlavor = String.fromEnvironment(
+  EnvKkeys.flavor,
+  defaultValue: Flavor.dev.name,
+);
 
 FutureOr<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  F.appFlavor = Flavor.values.firstWhere(
-    (element) => element.name == appFlavor.toLowerCase(),
-    orElse: () => Flavor.dev,
-  );
-
-  if (F.appFlavor.name != appFlavor.toLowerCase()) {
+  final lowerCaseFlavor = appFlavor.toLowerCase();
+  final resolvedFlavor = Flavor.values.asNameMap()[lowerCaseFlavor];
+  if (resolvedFlavor == null) {
+    F.appFlavor = Flavor.dev;
     logger.w('Unknown FLAVOR "$appFlavor"; falling back to "${F.name}".');
   } else {
+    F.appFlavor = resolvedFlavor;
     logger.i('App Flavor: ${F.name}');
   }
 

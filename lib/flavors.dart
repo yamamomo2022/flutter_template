@@ -14,3 +14,7 @@ class F {
     }
   }
 }
+
+class EnvKkeys {
+  static const flavor = 'FLAVOR';
+}
