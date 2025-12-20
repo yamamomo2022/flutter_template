@@ -60,5 +60,6 @@
     {
       "text": "Then, please include detailed changes for each file."
     }
-  ]
+  ],
+  "cmake.ignoreCMakeListsMissing": true
 }
