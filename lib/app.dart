@@ -6,7 +6,6 @@ import 'flavors.dart';
 import 'l10n/app_localizations.dart';
 import 'router_config.dart';
 
-
 class App extends StatelessWidget {
   const App({super.key});
 

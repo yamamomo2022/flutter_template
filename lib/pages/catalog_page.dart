@@ -8,9 +8,7 @@ class CatalogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Catalog'),
-      ),
+      appBar: AppBar(title: const Text('Catalog')),
       body: const _CatalogGrid(),
     );
   }
@@ -28,12 +26,13 @@ class _CatalogGrid extends StatelessWidget {
       mainAxisSpacing: 16,
       children: List.generate(catalogRoutes.length, (index) {
         return InkWell(
-          onTap: () => GoRouter.of(context).push('/${catalogRoutes[index].title.toLowerCase()}'),
+          onTap:
+              () => GoRouter.of(
+                context,
+              ).push('/${catalogRoutes[index].title.toLowerCase()}'),
           child: Card(
             elevation: 4,
-            child: Center(
-              child: Text(catalogRoutes[index].title),
-            ),
+            child: Center(child: Text(catalogRoutes[index].title)),
           ),
         );
       }),

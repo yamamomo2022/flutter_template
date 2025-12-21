@@ -8,26 +8,18 @@ import 'package:flutter/material.dart';
 class CatalogRoute {
   /// ルートのタイトル
   final String title;
+
   /// 表示するページウィジェット
   final Widget page;
 
   /// [title]はルートのタイトル、[page]は表示するウィジェット。
-  const CatalogRoute({
-    required this.title,
-    required this.page,
-  });
+  const CatalogRoute({required this.title, required this.page});
 }
 
 // カタログ用のルートリスト
 final List<CatalogRoute> catalogRoutes = <CatalogRoute>[
-  CatalogRoute(
-    title: 'Top',
-    page: const MyHomePage(),
-  ),
-  CatalogRoute(
-    title: 'Catalog',
-    page: const CatalogPage(),
-  ),
+  CatalogRoute(title: 'Top', page: const MyHomePage()),
+  CatalogRoute(title: 'Catalog', page: const CatalogPage()),
 ];
 
 // GoRouterのセットアップ
@@ -40,19 +32,28 @@ final GoRouter router = GoRouter(
         for (final route in catalogRoutes)
           GoRoute(
             path: route.title.toLowerCase(),
-            pageBuilder: (context, state) => CustomTransitionPage(
-              key: state.pageKey,
-              child: route.page,
-              transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                const begin = Offset(0.0, 1.0);
-                const end = Offset.zero;
-                final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.ease));
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
-              },
-            ),
+            pageBuilder:
+                (context, state) => CustomTransitionPage(
+                  key: state.pageKey,
+                  child: route.page,
+                  transitionsBuilder: (
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ) {
+                    const begin = Offset(0.0, 1.0);
+                    const end = Offset.zero;
+                    final tween = Tween(
+                      begin: begin,
+                      end: end,
+                    ).chain(CurveTween(curve: Curves.ease));
+                    return SlideTransition(
+                      position: animation.drive(tween),
+                      child: child,
+                    );
+                  },
+                ),
           ),
       ],
     ),
