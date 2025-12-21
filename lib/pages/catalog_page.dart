@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/pages/my_home_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_template/router_config.dart';
 
 class CatalogPage extends StatelessWidget {
   const CatalogPage({super.key});
@@ -27,7 +28,7 @@ class _CatalogGrid extends StatelessWidget {
       mainAxisSpacing: 16,
       children: List.generate(catalogRoutes.length, (index) {
         return InkWell(
-          onTap: () {},
+          onTap: () => GoRouter.of(context).push('/${catalogRoutes[index].title.toLowerCase()}'),
           child: Card(
             elevation: 4,
             child: Center(
@@ -38,31 +39,4 @@ class _CatalogGrid extends StatelessWidget {
       }),
     );
   }
-}
-
-List<CatalogRoute> catalogRoutes =  <CatalogRoute>[
-  CatalogRoute(
-    title: 'Top',
-    page: const MyHomePage(),
-  ),
-  CatalogRoute(
-    title: 'Catalog',
-    page: const CatalogPage(),
-  ),
-];
-
-
-/// カタログページのルート情報を管理するクラス。
-/// go_routerのルート定義で利用することを想定。
-class CatalogRoute {
-  /// ルートのタイトル
-  final String title;
-  /// 表示するページウィジェット
-  final Widget page;
-
-  /// [title]はルートのタイトル、[page]は表示するウィジェット。
-  const CatalogRoute({
-    required this.title,
-    required this.page,
-  });
 }
