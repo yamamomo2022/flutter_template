@@ -14,7 +14,6 @@ class App extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: router,
       debugShowCheckedModeBanner: false,
-      title: 'Catalog',
       onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
       localizationsDelegates: [
         AppLocalizations.delegate,
